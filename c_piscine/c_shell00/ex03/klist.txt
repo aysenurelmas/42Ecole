@@ -1,0 +1,5 @@
+Credentials cache: API:6D09939C-CD8D-41B5-87E5-8CDA8790FEF6
+        Principal: aelmas@42KOCAELI.COM.TR
+
+  Issued                Expires               Principal
+Oct  3 16:49:30 2021  Oct  4 02:49:23 2021  krbtgt/42KOCAELI.COM.TR@42KOCAELI.COM.TR
