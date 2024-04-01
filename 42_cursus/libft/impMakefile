@@ -1,0 +1,38 @@
+# -*- Makefile -*-   projeye makefile dosyası olarak biçimlendirilmesi söylenir.
+
+#target: dependencies
+#	action
+
+NAME = libft.a
+
+HEADER = libft.h
+
+LIBFTDIR = ../libft
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+ARFLAGS = rcs
+#implicit variale flaglar içi nulldur.
+
+#wildcard tanımlandığı dizindeki bütün dosyaları listeler.
+SRCS	= $(wildcard *.c)	#tüm dosylardan .c ile biten dosyaları src'ye atar.
+
+OBJS	= $(SRCS:.c=.o)		#SRCS deki .c ile biten dosayları .o yap
+#OBJS	=$(wildcard *.o)	#.o dosyalarını objs at //çalısmıyor .o dosyası üretmiyor
+
+CMPL	= $(SRCS:%.c=%)		#SRCS .c dosyalrınının  çalışılabilir dosya yapar (a.out -o(output))
+
+$(NAME): $(OBJS) $(HEADER)	
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS) 
+
+clean:
+	$(RM) $(OBJS) 
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: clean all
+
+
+#Makefile yeniden derlendiği zaman tüm dosyaları derliyor. Bu sadece değiştirilen dosyaları derliyor.
